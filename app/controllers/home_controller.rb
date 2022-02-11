@@ -1,16 +1,20 @@
 class HomeController < ApplicationController
     def index
+        @products = Product.all
     end
 
     def featured
-        @products = products.
+        @products = products.recent
     end
 
-    def cat1
-        @cat1.
-    end
+    #def cat1
+    #end
 
-    def cat2
+    #def cat2
+    #end
+
+    def show
+        @product = Product.find(params[:id])
     end
 
     def secret
