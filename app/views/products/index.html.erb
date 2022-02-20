@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>EW432 Store</h1>
+
+
+<h2> Featured Products </h2>
+<hr>
+<ul>
+  <% @products.each do |product| %>
+    <li>
+    <%= link_to product.name, product %>
+        $<%= product.price %>
+    </li>
+  <% end %>
+</ul>
+# <%= link_to "New Product", new_product_path %>
+
+
+</body>
+</html>
