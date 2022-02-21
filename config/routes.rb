@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # get "/products", to:"products#index"
   # get "/products/:id", to: "products#show"
   
-  resources :products
+  resources :products do
+    resources :reviews
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end
