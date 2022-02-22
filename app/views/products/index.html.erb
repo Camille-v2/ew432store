@@ -17,14 +17,14 @@
           <h5 class="card-title"><%= product.name %></h5>
           <p class="card-text"> $ <%= product.price %></p>
           <p class="card-text"><%= product.description.truncate_words(8)%></p>
-          <%= link_to product.name, product class:"btn btn-primary" %>
+          <%= link_to product.name, product, class:"btn btn-primary" %>
         </div>
       </div>
   <% end %>
 </div>
 
 <div class="new-product">
-  <%= link_to "New Product", new_product_path class:"btn btn-primary" %>
+  <%= link_to "New Product", new_product_path, class:"btn btn-primary" %>
 </div>
 
 <style>
