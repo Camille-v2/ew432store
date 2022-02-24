@@ -6,25 +6,27 @@
   <div class="count">
   <div class="alert alert-info" role="alert">
     We have <%= Product.count %> products and counting!
+    There are <%= @cart.length %> items in your cart.
   </div>
 </div>
 
-<div class="row">
+<div class="row gap-2 justify-content-evenly">
   <% @products.each do |product| %>
       <div class="card text-center" style="width: 18rem;">
         <%= image_tag(product.image) %>
         <div class="card-body">
-          <h5 class="card-title"><%= product.name %></h5>
+          <%= link_to product.name, product, class: "card-title btn btn-outline-secondary" %>
           <p class="card-text"> $ <%= product.price %></p>
           <p class="card-text"><%= product.description.truncate_words(8)%></p>
-          <%= link_to product.name, product, class:"btn btn-secondary" %>
+          <%= link_to "Buy Now", buy_path(product), class: "btn btn-secondary" %>
         </div>
       </div>
   <% end %>
 </div>
 
-<div class="new-product">
-  <%= link_to "New Product", new_product_path, class:"btn btn-primary" %>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <br><%= link_to "Checkout", checkout_path, class:"btn btn-outline-dark" %><br>
 </div>
 
 <style>
@@ -36,9 +38,7 @@
   padding-top: 5px;
   padding-left: 25px;
 }
-.new-product{
-text-align: center;
-padding: 20px;
-}
 </style>
+
+
 

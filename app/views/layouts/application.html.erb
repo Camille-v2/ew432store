@@ -24,10 +24,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav position-relative">
             <%= link_to "All Products", products_path, class: "nav-link active"%>
             <%= link_to "Featured", products_path, class: "nav-link" %>
             <%= link_to "New Product", new_product_path, class: "nav-link" %>
+            <button type="button" class="btn btn-outline-secondary btn-sm">
+              <%= link_to "Cart", checkout_path, class: "nav-text nav-link" %>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <%= @cart.length %>
+                <span class="visually-hidden">Items in cart</span>
+              </span>
+            </button>
           </div>
         </div>
       </div>

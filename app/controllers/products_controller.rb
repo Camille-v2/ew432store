@@ -2,19 +2,27 @@ class ProductsController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]  
   
   def index
-      @products = Product.all
+    if session[:cart].nil?
+      session[:cart] = []
+    end
+    @products = Product.all
+    @cart = session[:cart]
   end
 
   def show
-      @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def featured
-      @product = Product.all
+    @product = Product.all
   end
 
   def new
-      @product = Product.new
+    if session[:cart].nil?
+      session[:cart] = []
+    end
+    @product = Product.new
+    @cart = session[:cart]
   end
 
   def create
@@ -34,11 +42,25 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
   
-    if @product.update(article_params)
+    if @product.update(product_params)
       redirect_to @product
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def buy
+    if session[:cart].nil?
+      session[:cart] = []
+    end
+    product = Product.find(params[:id])
+    session[:cart].append(product)
+    redirect_to :root
+  end
+
+  def checkout
+    @cart = session[:cart]
+    session[:cart] = []
   end
 
   def destroy
