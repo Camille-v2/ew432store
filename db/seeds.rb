@@ -5,26 +5,34 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# Recreate all products: File
 Product.create[(
     {
-        name: "",
-        description: "",
+        name: "3 Hole Punch",
+        description: "It punches not one.. not two.. but three holes in the side of your paper.",
         price: 10,
         stock: 50,
-        image: ""
+        image: "3HolePunch.PNG"
     }
     {
-        name: "",
-        description: "",
+        name: "Paper",
+        description: "A fine ream of paper to accompany that new 3 hole punch",
         price: 10,
         stock: 50,
-        image: ""
+        image: "PaperReam.PNG"
     }
     {
-        name: "",
-        description: "",
+        name: "Pencils",
+        description: "A collective box of basic wooden number two pencils. Extra strength eraser for those who chew nervously during tests.",
         price: 10,
         stock: 50,
-        image: ""
+        image: "pencils.PNG"
+    }
+    {
+        name: "Pens",
+        description: "8 pack of colorful gel pens that look great in planners and on calendars.",
+        price: 10,
+        stock: 50,
+        image: "pens.PNG"
     }
 )]
