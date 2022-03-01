@@ -22,14 +22,21 @@
       <div><%= message %></div>
     <% end %>
   </div>
+
+  <div class="form-floating mb-3">
+    <input type="name" class="form-control" id="floatingInput" placeholder="Product Name">
+    <label for="floatingInput">Name</label>
+  </div>
+  <div class="form-floating">
+    <textarea class="form-control" id="floatingDescription" placeholder="Description" style="hieght: 100px"></textarea>
+    <label for="floatingDescription">Description</label>
+  </div>
+  <div class="form-floating">
+    <input type="price" class="form-control" id="floatingPrice" placeholder="Price">
+    <label for="floatingPrice">Price</label>
+  </div>
   
   <div>
     <%= form.submit %>
   </div>
-
-  <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-    <label for="floatingTextarea2">Comments</label>
-  </div>
-
   <% end %>
