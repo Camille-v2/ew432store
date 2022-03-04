@@ -6,47 +6,52 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # Recreate all products: File
-Product.create[(
+
+Product.destroy_all
+
+Product.create!([
     {
         name: "3 Hole Punch",
         description: "It punches not one.. not two.. but three holes in the side of your paper.",
         price: 10,
         stock: 50,
-        image: "3HolePunch.PNG",
+        image: "3HolePunch.PNG"
     },
     {
         name: "Paper",
-        description: "A fine ream of paper to accompany that new 3 hole punch",
-        price: 10,
+        description: "A fine ream of paper to accompany that new 3 hole punch.",
+        price: 3.99,
         stock: 50,
-        image: "PaperReam.PNG",
+        image: "PaperReam.PNG"
     },
     {
         name: "Pencils",
         description: "A collective box of basic wooden number two pencils. Extra strength eraser for those who chew nervously during tests.",
-        price: 10,
+        price: 4.99,
         stock: 50,
-        image: "pencils.PNG",
+        image: "pencils.PNG"
     },
     {
         name: "Pens",
         description: "8 pack of colorful gel pens that look great in planners and on calendars.",
-        price: 10,
+        price: 8.99,
         stock: 50,
-        image: "pens.PNG",
-    }
+        image: "pens.PNG"
+    },
     {
         name: "Stapler",
         description: "This stapler can get through at least 15 pages, tackling large projects with a perfect staple each time.",
-        price: 9.99,
+        price: 6.99,
         stock: 15,
-        image: "stapler.jpg",
-    }
+        image: "stapler.jpg"
+    },
     {
         name: "Staples",
-        description: "Sold in packs of 300 staples.",
-        price: 6.99,
+        description: "Sold in packs of 300 staples. Will fit in any standard stapler.",
+        price: 4.99,
         stock: 25,
-        image: "staples.png",
+        image: "staples.png"
     }
-)]
+])
+
+p "Created #{Product.count} products"
