@@ -23,6 +23,9 @@
     <% end %>
   </div>
 
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :title %></label>
+      <%= input type:"title", class:"form-control", placeholder:"Title", form.text_area :title =%>
+
   <div class="form-floating mb-3">
     <input type="name" class="form-control" id="floatingInput" placeholder="Product Name">
     <label for="floatingInput">Name</label>
