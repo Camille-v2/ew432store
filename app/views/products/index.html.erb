@@ -18,7 +18,11 @@
         <p class="card-text"> $<%= product.price %></p>
         <p class="card-text"><%= product.description.truncate_words(8)%></p>
         <p class="card-text">Stock: <%= product.stock %></p>
-        <%= link_to "Buy Now", buy_path(product), class: "btn btn-secondary" %>
+        <% if product.stock == 0 %>
+          <button type="button" class="btn btn-sm btn-secondary" disabled>Out of Stock</button>
+        <% else %>
+          <%= link_to "Buy Now", buy_path(product), class: "btn btn-secondary" %>
+        <% end %>
       </div>
     </div>
   <% end %>

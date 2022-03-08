@@ -63,15 +63,10 @@ class ProductsController < ApplicationController
     end
   @product = Product.create[params[:product]]
   product = Product.find(params[:id])
-    if product.errors.any?
-      product.errors.full_messages do |message|
-        message = 'Out of Stock'
-      end
-    end
-    product.decrement :stock, 1
-    session[:cart].append(product)
-    product.update(stock: product.stock)
-    redirect_to :root
+  product.decrement :stock, 1
+  session[:cart].append(product)
+  product.update(stock: product.stock)
+  redirect_to :root
   end
 
   def checkout
