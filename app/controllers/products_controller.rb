@@ -62,7 +62,9 @@ class ProductsController < ApplicationController
       session[:cart] = []
     end
     product = Product.find(params[:id])
+    product.decrement :stock, 1
     session[:cart].append(product)
+    product.update(stock: product.stock)
     redirect_to :root
   end
 

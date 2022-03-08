@@ -13,6 +13,7 @@
 <div class="container-fluid">
   <p> Price: $<%= @product.price %></p>
   <p> Description: <br> <%= @product.description %></p>
+  <%= link_to "Buy Now", buy_path(@product), class: "btn btn-secondary" %>
 </div>
 <hr>
 
