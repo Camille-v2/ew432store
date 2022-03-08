@@ -61,7 +61,13 @@ class ProductsController < ApplicationController
     if session[:cart].nil?
       session[:cart] = []
     end
-    product = Product.find(params[:id])
+  @product = Product.create[params[:product]]
+  product = Product.find(params[:id])
+    if product.errors.any?
+      product.errors.full_messages do |message|
+        message = 'Out of Stock'
+      end
+    end
     product.decrement :stock, 1
     session[:cart].append(product)
     product.update(stock: product.stock)

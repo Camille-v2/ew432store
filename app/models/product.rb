@@ -4,5 +4,6 @@ class Product < ApplicationRecord
     validates :name, presence: true
     validates :description, presence: true, length: {minimum: 40}
     validates :price, comparison: {greater_than: 0}
+    validates :stock, comparison: {greater_than: 0}
     
 end
