@@ -1,17 +1,18 @@
 <%= form_with model: [ @product, @product.reviews.build ] do |form| %>
+    <div class="form-floating mb-3">
+      <%= form.text_field :reviewer, class:"form-control", id:"floatingReviewer", placeholder:"Reviewer" %>
+      <label for="floatingReviewer">Reviewer</label>
+    </div>
+    <div class="form-floating mb-3">
+      <%= form.text_field :rating, class:"form-control", id:"floatingRating", placeholder:"Rating"%>
+      <label for="floatingRating">Rating</label>
+    </div>
+    <div class="form-floating mb-3">
+      <%= form.text_area :body, class:"form-control", id:"floatingBody", placeholder:"Body"%>
+      <label for="floatingBody">Body of Review</label>
+    </div>
+
     <p>
-      <%= form.label :reviewer %><br>
-      <%= form.text_field :reviewer %>
-    </p>
-    <p>
-      <%= form.label :rating %><br>
-      <%= form.text_field :rating %>
-    </p>
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </p>
-    <p>
-      <%= form.submit %>
+      <%= link_to "Creat Review", form.submit, class:"btn btn-sm btn-dark" %>
     </p>
   <% end %>

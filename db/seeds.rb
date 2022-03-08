@@ -29,7 +29,7 @@ Product.create!([
         description: "A collective box of basic wooden number two pencils. Extra strength eraser for those who chew nervously during tests.",
         price: 4.99,
         stock: 50,
-        image: "pencils.PNG"
+        image: "pencils.PNG" 
     },
     {
         name: "Pens",

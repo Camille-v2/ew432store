@@ -10,11 +10,19 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if session[:cart].nil?
+      session[:cart] = []
+    end
     @product = Product.find(params[:id])
+    @cart = session[:cart]
   end
 
   def featured
+    if session[:cart].nil?
+      session[:cart] = []
+    end
     @product = Product.all
+    @cart = session[:cart]
   end
 
   def new

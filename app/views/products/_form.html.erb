@@ -1,45 +1,28 @@
 <%= form_with model: product do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% product.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+
+<div class="form-floating mb-3">
+  <%= form.text_field :name, class:"form-control", id:"floatingName", placeholder:"Product Name" %>
+  <label for="floatingName">Product Name</label>
+</div>
+<div class="form-floating mb-3">
+  <%= form.text_area :description, class:"form-control", id:"floatingDescription", placeholder:"Description"%>
+  <label for="floatingDescription">Description</label>
+</div>
+<div class="form-floating mb-3">
+  <%= form.text_field :price, class:"form-control", id:"floatingPrice", placeholder:"Price"%>
+  <label for="floatingPrice">Price</label>
+</div>
+<div class="form-floating mb-3">
+  <%= form.text_field :stock, class:"form-control", id:"floatingStock", placeholder:"Stock"%>
+  <label for="floatingStock">Stock</label>
+</div>
+<div class="form-floating mb-3">
+  <div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
   </div>
+</div>
   
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
-    <% product.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :price %><br>
-    <%= form.text_field :price %><br>
-    <% product.errors.full_messages_for(:price).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-    <label for="exampleFormControlInput1" class="form-label"><%= form.label :title %></label>
-      <%= input type:"title", class:"form-control", placeholder:"Title", form.text_area :title =%>
-
-  <div class="form-floating mb-3">
-    <input type="name" class="form-control" id="floatingInput" placeholder="Product Name">
-    <label for="floatingInput">Name</label>
-  </div>
-  <div class="form-floating">
-    <textarea class="form-control" id="floatingDescription" placeholder="Description" style="hieght: 100px"></textarea>
-    <label for="floatingDescription">Description</label>
-  </div>
-  <div class="form-floating">
-    <input type="price" class="form-control" id="floatingPrice" placeholder="Price">
-    <label for="floatingPrice">Price</label>
-  </div>
-  
-  <div>
-    <%= form.submit %>
-  </div>
+<div class="form-floating mb-3">
+  <%= link_to "Creat Product", form.submit, class:"btn btn-sm btn-dark" %>
+</div>
   <% end %>
