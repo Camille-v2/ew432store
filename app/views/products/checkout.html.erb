@@ -9,6 +9,12 @@
   <%end%>
 </ul>
 
-<div class="alert-primary">On the way!</div>
+<% @products.each do |product| %>
+  <% if product.stock == 0 %>
+    <%= "Some items may be out of stock, check back late." %>
+  <% else %>
+    <div class="alert-primary">On the way!</div>
+    <a href="/">Keep shopping</a>
+  <% end %>
+  <% end %>
 
-<a href="/">Keep shopping</a>
