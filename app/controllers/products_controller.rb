@@ -72,6 +72,7 @@ class ProductsController < ApplicationController
   def checkout
     @cart = session[:cart]
     session[:cart] = []
+    @products = Product.all
   end
 
   def destroy
