@@ -9,6 +9,15 @@ class ProductsController < ApplicationController
     @cart = session[:cart]
   end
 
+  def list
+    if session[:cart].nil?
+      session[:cart] = []
+    end
+    @products = Product.all
+    render json: @products
+    @cart = session[:cart]
+  end
+  
   def show
     if session[:cart].nil?
       session[:cart] = []
@@ -72,6 +81,9 @@ class ProductsController < ApplicationController
   def checkout
     @cart = session[:cart]
     session[:cart] = []
+    if session[:cart].nil?
+      session[:cart] = []
+    end
     @products = Product.all
   end
 

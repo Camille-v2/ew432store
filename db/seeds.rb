@@ -53,5 +53,3 @@ Product.create!([
         image: "staples.png"
     }
 ])
-
-p "Created #{Product.count} products"
